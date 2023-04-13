@@ -29,3 +29,4 @@ export const encodeCharsArray = (chars) => chars.split('').map((s)=>s.charCodeAt
 export const concatTypedArray = (arrays) => Uint16Array.from(buffers.flatMap((array)=>[...array]));
 export const concatArrayBuffer = (buffers) => Uint16Array.from(buffers.flatMap((buffer)=>[...new Uint16Array(buffer)]));
 
+// Additional good materials as reference https://stackoverflow.com/questions/21647928/javascript-unicode-string-to-hex
