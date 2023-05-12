@@ -21,3 +21,16 @@ the styles will get applyed this also allows easy themes.
 <my-effect-component class="xs" style="visible:none"></my-effect-component> // used for eg: menus and media layout switching.
 // use the class of the effect component everywhere as signal
 ```
+
+
+```
+const functionThatTakesTargetAsFirstParm = (target,options) => {};
+
+//allows api construction like a class
+const createTarget = target=>(opts)=>functionThatTakesTargetAsFirstParm(target,opts) && { target, next: (opts)=>functionThatTakesTargetAsFirstParm(target,opts)};
+const myTarget = createTarget(target);
+const { target: result } = myTarget(opts).next(opts).next(opts).next(opts)
+console.log(result);
+// allways operating onTheSame target get the final result on the const
+// It is much more performant then a class and returns still a constant shape for the engine.
+```
