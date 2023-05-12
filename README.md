@@ -13,3 +13,11 @@ also if no module left on page they will remove the style from the header.
 style only modules are easy do able via a none visible style component even if it is not visble 
 the styles will get applyed this also allows easy themes.
 
+
+```
+<my-theme-component style="visible:none"></my-theme-component>
+<my-other-theme-component style="visible:none"></my-other-theme-component> // Overwrites prev as the styles get added after the prev styles
+// when removed restores the prev styles. 
+<my-effect-component class="xs" style="visible:none"></my-effect-component> // used for eg: menus and media layout switching.
+// use the class of the effect component everywhere as signal
+```
