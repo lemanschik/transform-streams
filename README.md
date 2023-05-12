@@ -14,7 +14,7 @@ style only modules are easy do able via a none visible style component even if i
 the styles will get applyed this also allows easy themes.
 
 
-```
+```html
 <my-theme-component style="visible:none"></my-theme-component>
 <my-other-theme-component style="visible:none"></my-other-theme-component> // Overwrites prev as the styles get added after the prev styles
 // when removed restores the prev styles. 
@@ -23,11 +23,11 @@ the styles will get applyed this also allows easy themes.
 ```
 
 
-```
+```ts
 const functionThatTakesTargetAsFirstParm = (target,options) => {};
 
 //allows api construction like a class
-const createTarget = target=>(opts)=>functionThatTakesTargetAsFirstParm(target,opts) && { target, next: (opts)=>functionThatTakesTargetAsFirstParm(target,opts)};
+const createTarget = target=>(opts)=>functionThatTakesTargetAsFirstParm(target,opts) && ({ target, next: (opts)=>functionThatTakesTargetAsFirstParm(target,opts)});
 const myTarget = createTarget(target);
 const { target: result } = myTarget(opts).next(opts).next(opts).next(opts)
 console.log(result);
